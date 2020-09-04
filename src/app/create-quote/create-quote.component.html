@@ -1,0 +1,22 @@
+<div class="create-form">
+    <h2>Create a new Quote</h2>
+    <form [formGroup]="createQuoteForm">
+        <div>
+            <label>Enter the Quote</label>
+            <input type="text" formControlName="quote">
+        </div>
+        <div>
+            <label>Enter the Quote description</label>
+            <input type="text" formControlName="description">
+        </div>
+        <div>
+            <label>Enter the Quote author</label>
+            <input type="text" formControlName="author">
+        </div>
+        <div>
+            <label>Enter the category of the quote</label>
+            <input type="text" formControlName="category">
+        </div>
+    </form>
+    <button (click)="createNewQuote()">Create</button>
+</div>

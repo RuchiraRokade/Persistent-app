@@ -1,0 +1,12 @@
+<div>
+    <h3>Sign up</h3>
+    <hr>
+    <form [formGroup]="signUpForm">
+        <span></span>
+        <input type="text" formControlName="name" placeholder="Enter your name">
+        <input type="email" formControlName="email" placeholder="Enter your email id">
+        <input type="password" formControlName="password" placeholder="Enter your password">
+        <button (click)="signUp()" [disabled]="signUpForm.invalid">Sign Up</button>
+    </form>
+    <span>{{errorMessage}}</span>
+</div>

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './themes/palette.scss';
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: map-get($map: $light, $key: 'background');
+}
+
+.primary-button {
+    min-width: 100px;
+    color: black;
+    background: #5CA4A9;
+    border-radius: 2px;
+    width: 100px;
+    height: 30px;
+    min-height: 30px;
+    border: 1px solid black;
+}

@@ -1,0 +1,34 @@
+<!-- <p>quotes-list works!</p> -->
+<!-- <div *ngFor="let quote of quoteList">
+    <app-quote-item [quote]="quote" [userAuthenticated]="userAuthenticated"></app-quote-item>
+</div> -->
+<h2>Quotes List</h2>
+<button (click)="createQuoteForm()">Create new quote</button>
+<table>
+    <thead>
+        <tr>
+            <th>Quote</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quote of quotes">
+            <td>{{quote.quote}}</td>
+            <td>{{quote.description}}</td>
+            <td>{{quote.author}}</td>
+            <td>{{quote.category}}</td>
+            <td>
+                <button (click)="deleteQuote(quote.id)">Delete</button>
+                <button>Update</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="createQuote">
+    <app-create-quote (quoteCreatedSuccessfully)="quoteCreated($event)" (errorInQuoteCreation)="quoteNotCreated($event)"></app-create-quote>
+    <span></span>
+</div>
