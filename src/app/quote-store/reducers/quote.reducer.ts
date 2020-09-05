@@ -1,5 +1,9 @@
 import { Quote } from '../../models/quote';
-import { QuoteActions, ADD_QUOTE, GET_QUOTES, DELETE_QUOTES, UPDATE_QUOTES, DATA_LOAD, ADD_QUOTE_SUCCESS, UPDATE_QUOTE_SUCCESS, DELETE_QUOTE_SUCCESS } from '../actions/quote.actions';
+import {
+  QuoteActions, ADD_QUOTE, GET_QUOTES,
+  DELETE_QUOTES, UPDATE_QUOTES, DATA_LOAD, ADD_QUOTE_SUCCESS,
+  UPDATE_QUOTE_SUCCESS, DELETE_QUOTE_SUCCESS
+} from '../actions/quote.actions';
 
 export interface State {
   quote: Quote[];

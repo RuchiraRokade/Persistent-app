@@ -5,7 +5,12 @@ import { Observable, of } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { map, switchMap, tap, mergeMap, take, pluck } from 'rxjs/operators';
-import { QuoteActions, ADD_QUOTE, GET_QUOTES, DELETE_QUOTES, UPDATE_QUOTES, GetQuotes, LoadDataSuccess, AddQuoteSuccess, AddQuote, DeleteQuotes, UpdateQuote, UpdateQuoteSuccess, DeleteQuoteSuccess } from '../actions/quote.actions';
+import {
+    QuoteActions, ADD_QUOTE, GET_QUOTES,
+    DELETE_QUOTES, UPDATE_QUOTES, GetQuotes,
+    LoadDataSuccess, AddQuoteSuccess, AddQuote,
+    DeleteQuotes, UpdateQuote, UpdateQuoteSuccess, DeleteQuoteSuccess
+} from '../actions/quote.actions';
 import { Quote } from '../../models/quote';
 import { ClassGetter } from '@angular/compiler/src/output/output_ast';
 
@@ -53,7 +58,6 @@ export class QuoteEffects {
                                     return new DeleteQuoteSuccess();
                                 }));
                         }));
-    
             @Effect({dispatch: true})
             UpdateQuotes: Observable<any> =  this.actions.pipe(
                     ofType(UPDATE_QUOTES),

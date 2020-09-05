@@ -9,12 +9,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
 
   readonly BASE_URL = 'http://localhost:3000/';
-  private _errorMessage: string;
+  private errMessage: string;
   get errorMessage(): string {
-    return this._errorMessage;
+    return this.errMessage;
   }
   set errorMessage(message: string) {
-    this._errorMessage = message;
+    this.errMessage = message;
   }
 
   constructor(private http: HttpClient) {

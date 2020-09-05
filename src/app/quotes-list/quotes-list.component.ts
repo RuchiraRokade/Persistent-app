@@ -21,7 +21,7 @@ export class QuotesListComponent implements OnInit {
   quoteToUpdate: Quote;
   getState: Observable<any>;
 
-  constructor(private router: Router, private store: Store<AppState>) { 
+  constructor(private router: Router, private store: Store<AppState>) {
     this.getState = this.store.select(quoteState);
   }
 
