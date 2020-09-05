@@ -1,7 +1,39 @@
 table,
-th,
-tr,
-td {
-    border: 1px solid black;
+thead {
+    border: 1px solid lightgrey;
     text-align: center;
+}
+
+table {
+    thead {
+        tr {
+            .actions {
+                min-width: 10rem;
+            }
+        }
+    }
+    tbody {
+        tr {
+            .actions-buttons {
+                padding: 0.5rem;
+                .update {
+                    margin-left: 0.5rem;
+                }
+            }
+            &:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        }
+    }
+}
+
+.notification {
+    text-align: center;
+    padding: 2rem;
+    &.success {
+        background-color: green;
+    }
+    &.error {
+        background-color: tomato;
+    }
 }

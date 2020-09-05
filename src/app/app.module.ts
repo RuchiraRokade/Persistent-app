@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
@@ -14,17 +13,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
 import { QuotesListComponent } from './quotes-list/quotes-list.component';
-import { QuoteItemComponent } from './quote-item/quote-item.component';
 import { CreateQuoteComponent } from './create-quote/create-quote.component';
+import { QuoteEffects } from '../app/quote-store/effects/quote.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SignUpComponent,
     HomeComponent,
     QuotesListComponent,
-    QuoteItemComponent,
     CreateQuoteComponent
   ],
   imports: [
@@ -34,7 +31,7 @@ import { CreateQuoteComponent } from './create-quote/create-quote.component';
     FormsModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, QuoteEffects]),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

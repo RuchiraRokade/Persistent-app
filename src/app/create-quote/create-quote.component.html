@@ -1,22 +1,78 @@
-<div class="create-form">
-    <h2>Create a new Quote</h2>
-    <form [formGroup]="createQuoteForm">
-        <div>
-            <label>Enter the Quote</label>
-            <input type="text" formControlName="quote">
-        </div>
-        <div>
-            <label>Enter the Quote description</label>
-            <input type="text" formControlName="description">
-        </div>
-        <div>
-            <label>Enter the Quote author</label>
-            <input type="text" formControlName="author">
-        </div>
-        <div>
-            <label>Enter the category of the quote</label>
-            <input type="text" formControlName="category">
-        </div>
-    </form>
-    <button (click)="createNewQuote()">Create</button>
+<div class="create-form form-background">
+    <ng-container *ngIf="!displayUpdate; else updateQuote">
+        <h2>Create a new Quote</h2>
+        <form [formGroup]="createQuoteForm">
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the Quote</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="quote">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the Quote description</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="description">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the Quote author</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="author">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the category of the quote</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="category">
+                </div>
+            </div>
+        </form>
+        <button (click)="createOrUpdateQuote()" class="secondary-button">Create</button>
+    </ng-container>
+    <ng-template #updateQuote>
+        <h2>Update Quote</h2>
+        <form [formGroup]="createQuoteForm">
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the updated Quote</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="quote">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the updated Quote description</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="description">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the updated Quote author</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="author">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the updated category of the quote</label>
+                </div>
+                <div class="col50">
+                    <input type="text" formControlName="category">
+                </div>
+            </div>
+        </form>
+        <button (click)="createOrUpdateQuote()" class="primary-button">updateQuote</button>
+    </ng-template>
 </div>

@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
+import { CreateQuoteComponent } from './create-quote/create-quote.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: SignUpComponent, data: { isLogin: true } },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'create', component: CreateQuoteComponent },
+  {path: 'update', component: CreateQuoteComponent, data: {isUpdate: true}},
   { path: '', component: HomeComponent },
   {path: '**', redirectTo: '/'}
 ];

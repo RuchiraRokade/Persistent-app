@@ -1,0 +1,27 @@
+.header {
+    padding: 1rem;
+    overflow: hidden;
+    .heading-title {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .navigation {
+        display: contents;
+    }
+    .actions {
+        float: right;
+        padding: 1rem;
+        background-color: #9BC1BC;
+        border-radius: 0.5rem;
+        color: black;
+        text-decoration: none;
+    }
+    .login {
+        margin-left: 0.5rem;
+    }
+}
+
+.quotes-section {
+    margin-top: 1rem;
+}

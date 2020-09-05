@@ -1,8 +1,31 @@
 .create-form {
-    border: 1px solid black;
-    padding: 1rem;
-}
-
-.h2 {
-    margin: 0.5rem;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    padding: 0.5rem;
+    .h2 {
+        margin: 0.5rem;
+    }
+    .col25 {
+        width: 25%;
+        float: left;
+    }
+    .col75 {
+        width: 75%;
+        float: left;
+    }
+    .col50 {
+        width: 50%;
+        float: left;
+    }
+    input {
+        width: 90%;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid lightgrey;
+        border-radius: 3px;
+        ;
+    }
+    .form-row {
+        margin: 0.5rem;
+    }
 }

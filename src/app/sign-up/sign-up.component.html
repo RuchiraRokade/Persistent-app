@@ -1,12 +1,40 @@
-<div>
-    <h3>Sign up</h3>
-    <hr>
-    <form [formGroup]="signUpForm">
-        <span></span>
-        <input type="text" formControlName="name" placeholder="Enter your name">
-        <input type="email" formControlName="email" placeholder="Enter your email id">
-        <input type="password" formControlName="password" placeholder="Enter your password">
-        <button (click)="signUp()" [disabled]="signUpForm.invalid">Sign Up</button>
-    </form>
-    <span>{{errorMessage}}</span>
-</div>
+<ng-container *ngIf="displayLogin; else signUp">
+    <div class="create-form form-background">
+        <h3>Login Form</h3>
+        <hr>
+        <form [formGroup]="loginForm" class="form-row">
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the email id:</label>
+                </div>
+                <div class="col50">
+                    <input type="email" formControlName="email" placeholder="Enter your email id">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col50">
+                    <label>Enter the email id:</label>
+                </div>
+                <div class="col50">
+                    <input type="password" formControlName="password" placeholder="Enter your password">
+                </div>
+            </div>
+            <button (click)="login()" class="primary-button" [disabled]="loginForm.invalid">Login</button>
+        </form>
+        <span>{{errorMessage}}</span>
+    </div>
+</ng-container>
+<ng-template #signUp>
+    <div>
+        <h3>Sign up</h3>
+        <hr>
+        <form [formGroup]="signUpForm">
+            <span></span>
+            <input type="text" formControlName="name" placeholder="Enter your name">
+            <input type="email" formControlName="email" placeholder="Enter your email id">
+            <input type="password" formControlName="password" placeholder="Enter your password">
+            <button (click)="signUp()" [disabled]="signUpForm.invalid">Sign Up</button>
+        </form>
+        <span>{{errorMessage}}</span>
+    </div>
+</ng-template>

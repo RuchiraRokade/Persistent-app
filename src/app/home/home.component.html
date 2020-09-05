@@ -1,26 +1,20 @@
-<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-    <!-- <ul>
-        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li><a routerLink="/sign-up" routerLinkActive="active">Sign Up</a></li>
-    </ul>
-    <button (click)="logout()">Logout</button> -->
+<div>
+    <header class="header">
+        <span class="heading-title">Quotes sharing app</span>
+        <nav class="navigation">
+            <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp;" class="actions"></div>
+            <ng-template #userLoggedIn>
+                <p>You logged in <em>{{user.email}}!</em></p>
+                <button (click)="logout()" class="primary-button">Log out</button>
+            </ng-template>
+            <ng-template #showLoginAndSignUp>
+                <button (click)="gotoLogin()">Login</button>
+                <button (click)="gotoSignUp()">Sign up</button>
+            </ng-template>
+        </nav>
+    </header>
+</div>
 
-    <div *ngIf="isAuthenticated; then doSomething; else doSomethingElse;"></div>
-    <ng-template #doSomething>
-        <p>You logged in <em>{{user.email}}!</em></p>
-        <button (click)="logout()">Log out</button>
-    </ng-template>
-    <ng-template #doSomethingElse>
-        <a routerLink="/login" routerLinkActive="active">Login</a>
-        <a routerLink="/sign-up" routerLinkActive="active">Sign Up</a>
-    </ng-template>
-</nav>
-
-<!-- <div *ngIf="quotes "> -->
-<!-- <ul *ngFor="let quote of quotes">
-        <li>{{quote?.quote}}</li>
-    </ul> -->
-
-<app-quotes-list [userAuthenticated]="isAuthenticated"></app-quotes-list>
-<!-- </div> -->
+<div class="quotes-section">
+    <app-quotes-list [userAuthenticated]="isAuthenticated"></app-quotes-list>
+</div>

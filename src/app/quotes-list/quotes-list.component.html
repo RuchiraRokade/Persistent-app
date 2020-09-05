@@ -1,9 +1,4 @@
-<!-- <p>quotes-list works!</p> -->
-<!-- <div *ngFor="let quote of quoteList">
-    <app-quote-item [quote]="quote" [userAuthenticated]="userAuthenticated"></app-quote-item>
-</div> -->
-<h2>Quotes List</h2>
-<button (click)="createQuoteForm()">Create new quote</button>
+<button class="secondary-button" *ngIf="userAuthenticated" (click)="createQuoteForm()">Create new quote</button>
 <table>
     <thead>
         <tr>
@@ -11,7 +6,7 @@
             <th>Description</th>
             <th>Author</th>
             <th>Category</th>
-            <th>Actions</th>
+            <th class="actions" *ngIf="userAuthenticated">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,15 +15,18 @@
             <td>{{quote.description}}</td>
             <td>{{quote.author}}</td>
             <td>{{quote.category}}</td>
-            <td>
-                <button (click)="deleteQuote(quote.id)">Delete</button>
-                <button>Update</button>
+            <td class="actions-buttons" *ngIf="userAuthenticated">
+                <button class="accent-button delete" (click)="deleteQuote(quote.id)">Delete</button>
+                <button class="secondary-button update" (click)="updateQuote(quote)">Update</button>
             </td>
         </tr>
     </tbody>
 </table>
+<div class="notification" *ngIf="displayMessage">
+    <span>{{displayMessage}}</span>
+    <button (click)="closeNotification()">Close</button>
+</div>
 
 <div *ngIf="createQuote">
-    <app-create-quote (quoteCreatedSuccessfully)="quoteCreated($event)" (errorInQuoteCreation)="quoteNotCreated($event)"></app-create-quote>
-    <span></span>
+    <app-create-quote [existingQuote]="quoteToUpdate" (quoteCreatedSuccessfully)="quoteCreated($event)" (errorInQuoteCreation)="quoteNotCreated($event)"></app-create-quote>
 </div>
