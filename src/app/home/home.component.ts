@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   quotes: Quote[];
   user = null;
   errorMessage = null;
+  isDarkTheme = false;
+  // private router: Router
   constructor(private store: Store<AppState>, private router: Router) {
     this.getState = this.store.select(selectAuthState);
   }
@@ -40,5 +42,8 @@ export class HomeComponent implements OnInit {
 
   public gotoSignUp(): void {
     this.router.navigateByUrl('sign-up');
+  }
+  toggleTheme(): void {
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }

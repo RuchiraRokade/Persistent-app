@@ -27,17 +27,29 @@ export class CreateQuoteComponent implements OnInit {
   getState: Observable<any>;
   @Output() quoteCreatedSuccessfully = new EventEmitter<string>();
   @Output() errorInQuoteCreation = new EventEmitter<string>();
+  quoteId: number;
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private quotesService: QuotesService
   ) {
     this.getState = this.store.select(quoteState);
   }
 
   ngOnInit(): void {
-    this.existingQuote = JSON.parse(localStorage.getItem('quote'));
+    if (this.route.snapshot.params && this.route.snapshot.params.id) {
+      console.log('params...', this.route.snapshot.params);
+      this.quoteId = this.route.snapshot.params.id;
+      this.quotesService.getByQuoteId(this.quoteId).subscribe((data: Quote) => {
+        console.log('inside service..', data);
+        this.existingQuote = data;
+        this.initializeCreateQuoteForm(this.existingQuote);
+      });
+    }
     this.initializeCreateQuoteForm(this.existingQuote);
+
+    // this.existingQuote = JSON.parse(localStorage.getItem('quote'));
 
     // after dispatching the create quote action, dispatch the load quotes action in the effectsitself
     this.store.subscribe((data) => {
@@ -93,7 +105,7 @@ export class CreateQuoteComponent implements OnInit {
         description: this.description,
         author: this.author,
         category: this.category,
-        id: this.existingQuote.id
+        id: this.existingQuote.id,
       };
       this.store.dispatch(new UpdateQuote(this.newQuote));
       this.store.dispatch(new GetQuotes());
@@ -103,7 +115,7 @@ export class CreateQuoteComponent implements OnInit {
         quote: this.quote,
         description: this.description,
         author: this.author,
-        category: this.category
+        category: this.category,
       };
       this.store.dispatch(new AddQuote(this.newQuote));
       this.store.dispatch(new GetQuotes());

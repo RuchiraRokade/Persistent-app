@@ -5,52 +5,54 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuotesService {
   readonly BASE_URL = 'http://localhost:3000/';
-  constructor(private http: HttpClient) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    }),
+  };
+  constructor(private http: HttpClient) {}
 
   public getAllQuotes(): Observable<Quote[]> {
     const getAllQuotesUrl = encodeURI('quotes');
-    return this.http.get<Quote[]>(`${this.BASE_URL + getAllQuotesUrl}`).pipe(
-            retry(1),
-            catchError(this.errorCatcher)
-          );
+    return this.http
+      .get<Quote[]>(`${this.BASE_URL + getAllQuotesUrl}`)
+      .pipe(retry(1), catchError(this.errorCatcher));
   }
 
-  public createQuote(quote: Quote): Observable<Quote>{
+  public createQuote(quote: Quote): Observable<Quote> {
     const createUrl = encodeURI('quotes');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
-    return this.http.post<Quote>(`${this.BASE_URL + createUrl}`, quote, httpOptions).pipe(
-            retry(1),
-            catchError(this.errorCatcher)
-          );
+    return this.http
+      .post<Quote>(`${this.BASE_URL + createUrl}`, quote, this.httpOptions)
+      .pipe(catchError(this.errorCatcher));
   }
 
-  public updateQuote(updatedQuote: Quote): Observable<Quote>{
+  public updateQuote(updatedQuote: Quote): Observable<Quote> {
     const updateQuoteUrl = encodeURI(`quotes/${updatedQuote.id}`);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
-    return this.http.patch<Quote>(`${this.BASE_URL + updateQuoteUrl}`, updatedQuote, httpOptions).pipe(
-            retry(1),
-            catchError(this.errorCatcher)
-          );
+    return this.http
+      .patch<Quote>(
+        `${this.BASE_URL + updateQuoteUrl}`,
+        updatedQuote,
+        this.httpOptions
+      )
+      .pipe(catchError(this.errorCatcher));
   }
 
-  public deleteQuote(id: number): Observable<any> {
+  public getByQuoteId(id: number): Observable<Quote> {
+    console.log('id..', id);
+    return this.http
+      .get<Quote>(this.BASE_URL + 'quotes/' + id)
+      .pipe(catchError(this.errorCatcher));
+  }
+
+  public deleteQuote(id: number): Observable<Quote> {
     const deleteQuoteUrl = encodeURI(`quotes/${id}`);
-    return this.http.delete<Quote>(`${this.BASE_URL + deleteQuoteUrl}`).pipe(
-            retry(1),
-            catchError(this.errorCatcher)
-          );
+    return this.http
+      .delete<Quote>(`${this.BASE_URL + deleteQuoteUrl}`)
+      .pipe(catchError(this.errorCatcher));
   }
 
   errorCatcher(error): Observable<never> {

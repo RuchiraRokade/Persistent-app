@@ -1,4 +1,4 @@
-<button class="secondary-button" *ngIf="userAuthenticated" (click)="createQuoteForm()">Create new quote</button>
+<button aria-label="Create a new quote" class="secondary-button" *ngIf="userAuthenticated" (click)="createQuoteForm()">Create new quote</button>
 <table>
     <thead>
         <tr>
@@ -11,20 +11,20 @@
     </thead>
     <tbody>
         <tr *ngFor="let quote of quotes">
-            <td>{{quote.quote}}</td>
-            <td>{{quote.description}}</td>
-            <td>{{quote.author}}</td>
-            <td>{{quote.category}}</td>
+            <td tabindex="0">{{quote.quote}}</td>
+            <td tabindex="0">{{quote.description}}</td>
+            <td tabindex="0">{{quote.author}}</td>
+            <td tabindex="0">{{quote.category}}</td>
             <td class="actions-buttons" *ngIf="userAuthenticated">
-                <button class="accent-button delete" (click)="deleteQuote(quote.id)">Delete</button>
-                <button class="secondary-button update" (click)="updateQuote(quote)">Update</button>
+                <button tabindex="0" aria-label="Delete Quote" class="accent-button delete" (click)="deleteQuote(quote.id)">Delete</button>
+                <button tabindex="0" aria-label="Update Quote" class="secondary-button update" (click)="updateQuote(quote)">Update</button>
             </td>
         </tr>
     </tbody>
 </table>
 <div class="notification" *ngIf="displayMessage">
     <span>{{displayMessage}}</span>
-    <button (click)="closeNotification()">Close</button>
+    <button aria-label="Close" (click)="closeNotification()">Close</button>
 </div>
 
 <div *ngIf="createQuote">

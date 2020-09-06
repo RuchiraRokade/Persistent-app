@@ -8,13 +8,17 @@ const routes: Routes = [
   { path: 'login', component: SignUpComponent, data: { isLogin: true } },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'create', component: CreateQuoteComponent },
-  {path: 'update', component: CreateQuoteComponent, data: {isUpdate: true}},
+  {
+    path: 'update/:id',
+    component: CreateQuoteComponent,
+    data: { isUpdate: true },
+  },
   { path: '', component: HomeComponent },
-  {path: '**', redirectTo: '/'}
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

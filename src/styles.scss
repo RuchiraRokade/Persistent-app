@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './themes/palette.scss';
+@import "./themes/palette.scss";
+@import "./themes/theme.scss";
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -11,14 +12,82 @@
     display: grid;
 }
 
-.header {
-    background-color: map-get($map: $light, $key: 'background');
+.contain-all {
+    &.light-mode {
+        @import "./themes/light/variables.scss";
+        .form-background {
+            background-color: $background-color;
+        }
+        .primary-button {
+            color: white;
+            background: $button-background-color-one;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+            pointer-events: cursor;
+        }
+        .secondary-button {
+            color: black;
+            background: $button-background-color-two;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+            pointer-events: cursor;
+        }
+        .accent-button {
+            color: white;
+            background: $button-background-color-three;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+    }
+    &.dark-mode {
+        @import "./themes/dark/variables.scss";
+        .form-background {
+            background-color: $background-color;
+        }
+        .primary-button {
+            color: white;
+            background: $button-background-color-one;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+            pointer-events: cursor;
+        }
+        .secondary-button {
+            color: black;
+            background: $button-background-color-two;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+            pointer-events: cursor;
+        }
+        .accent-button {
+            color: white;
+            background: $button-background-color-three;
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: none;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+    }
 }
 
-.form-background {
-    background-color: map-get($map: $light, $key: 'background');
-}
-
+// .header {
+//     background-color: $background-color;
+// }
 button:hover {
     pointer-events: cursor;
 }
@@ -27,36 +96,4 @@ button {
     &:disabled {
         background-color: lightgrey;
     }
-}
-
-.primary-button {
-    color: black;
-    background: #5CA4A9;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    border: none;
-    font-weight: normal;
-    font-size: 1rem;
-    pointer-events: cursor;
-}
-
-.secondary-button {
-    color: black;
-    background: #F4F1BB;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    border: none;
-    font-weight: normal;
-    font-size: 1rem;
-    pointer-events: cursor;
-}
-
-.accent-button {
-    color: white;
-    background: #ED6A5A;
-    padding: 0.5rem;
-    border-radius: 0.2rem;
-    border: none;
-    font-weight: normal;
-    font-size: 1rem;
 }

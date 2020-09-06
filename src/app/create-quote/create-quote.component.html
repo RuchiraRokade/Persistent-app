@@ -7,7 +7,7 @@
                     <label>Enter the Quote</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="quote">
+                    <input type="text" aria-label="Enter the quote" formControlName="quote">
                 </div>
             </div>
             <div class="form-row">
@@ -15,7 +15,7 @@
                     <label>Enter the Quote description</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="description">
+                    <input type="text" aria-label="Enter the description of the quote" formControlName="description">
                 </div>
             </div>
             <div class="form-row">
@@ -23,7 +23,7 @@
                     <label>Enter the Quote author</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="author">
+                    <input aria-label="Enter the author of the quote" type="text" formControlName="author">
                 </div>
             </div>
             <div class="form-row">
@@ -31,11 +31,11 @@
                     <label>Enter the category of the quote</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="category">
+                    <input aria-label="Enter the category of the quote" type="text" formControlName="category">
                 </div>
             </div>
         </form>
-        <button (click)="createOrUpdateQuote()" class="secondary-button">Create</button>
+        <button aria-label="Create the quote" (click)="createOrUpdateQuote()" class="secondary-button">Create</button>
     </ng-container>
     <ng-template #updateQuote>
         <h2>Update Quote</h2>
@@ -45,7 +45,7 @@
                     <label>Enter the updated Quote</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="quote">
+                    <input aria-label="Enter the new value of quote" type="text" formControlName="quote">
                 </div>
             </div>
             <div class="form-row">
@@ -53,7 +53,7 @@
                     <label>Enter the updated Quote description</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="description">
+                    <input aria-label="Enter the new value of quote description" type="text" formControlName="description">
                 </div>
             </div>
             <div class="form-row">
@@ -61,7 +61,7 @@
                     <label>Enter the updated Quote author</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="author">
+                    <input type="text" aria-label="Enter the new value of quote author" formControlName="author">
                 </div>
             </div>
             <div class="form-row">
@@ -69,10 +69,10 @@
                     <label>Enter the updated category of the quote</label>
                 </div>
                 <div class="col50">
-                    <input type="text" formControlName="category">
+                    <input type="text" aria-label="Enter the new value of quote category" formControlName="category">
                 </div>
             </div>
         </form>
-        <button (click)="createOrUpdateQuote()" class="primary-button">updateQuote</button>
+        <button aria-label="Update the quote" (click)="createOrUpdateQuote()" class="primary-button">updateQuote</button>
     </ng-template>
 </div>

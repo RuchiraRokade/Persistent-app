@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-quotes-list',
   templateUrl: './quotes-list.component.html',
-  styleUrls: ['./quotes-list.component.scss']
+  styleUrls: ['./quotes-list.component.scss'],
 })
 export class QuotesListComponent implements OnInit {
   quotes: Quote[];
-
   createQuote: boolean;
   @Input() userAuthenticated: boolean;
   displayMessage: string;
@@ -28,7 +27,7 @@ export class QuotesListComponent implements OnInit {
   ngOnInit(): void {
     this.loadAllQuotes();
     this.createQuote = false;
-    this.store.subscribe(data => {
+    this.store.subscribe((data) => {
       this.quotes = data.quote.quote;
     });
   }
@@ -36,6 +35,7 @@ export class QuotesListComponent implements OnInit {
   private loadAllQuotes(): void {
     this.store.dispatch(new GetQuotes());
   }
+
   public deleteQuote(id: number): void {
     this.store.dispatch(new DeleteQuotes(id));
     this.store.dispatch(new GetQuotes());
@@ -45,23 +45,24 @@ export class QuotesListComponent implements OnInit {
     this.displayMessage = event;
     this.loadAllQuotes();
   }
-  public quoteNotCreated(event): void {
-  this.displayMessage = event;
 
+  public quoteNotCreated(event): void {
+    this.displayMessage = event;
   }
+
   public createQuoteForm(): void {
-    localStorage.removeItem('quote');
+    // localStorage.removeItem('quote');
     this.router.navigateByUrl('create');
   }
 
   public updateQuote(quoteToUpdate: Quote): void {
-    localStorage.removeItem('quote');
-    localStorage.setItem('quote', JSON.stringify(quoteToUpdate));
-    this.router.navigateByUrl('update');
+    // localStorage.removeItem('quote');
+    // localStorage.setItem('quote', JSON.stringify(quoteToUpdate));
+    // this.router.navigate(['update', { id: quoteToUpdate.id }]);
+    this.router.navigateByUrl('update/' + quoteToUpdate.id);
   }
 
   public closeNotification(): void {
     this.displayMessage = undefined;
   }
-
 }

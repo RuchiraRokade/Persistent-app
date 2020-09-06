@@ -1,20 +1,31 @@
-<div>
-    <header class="header">
-        <span class="heading-title">Quotes sharing app</span>
-        <nav class="navigation">
-            <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp;" class="actions"></div>
-            <ng-template #userLoggedIn>
-                <p>You logged in <em>{{user.email}}!</em></p>
-                <button (click)="logout()" class="primary-button">Log out</button>
-            </ng-template>
-            <ng-template #showLoginAndSignUp>
-                <button (click)="gotoLogin()" class="actions">Login</button>
-                <button (click)="gotoSignUp()" class="actions">Sign up</button>
-            </ng-template>
-        </nav>
-    </header>
-</div>
+<div class="contain-all light-mode" [ngClass]="isDarkTheme ? 'dark-mode' : 'light-mode'">
+    <div>
+        <header class="header">
+            <span class="heading-title">Quotes sharing app</span>
+            <button (click)="toggleTheme()">Toggle theme</button>
+            <nav class="navigation">
+                <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp" class="actions"></div>
+                <ng-template #userLoggedIn>
+                    <p>
+                        You logged in <em>{{ user.email }}!</em>
+                    </p>
+                    <button aria-label="Log out" (click)="logout()" class="primary-button">
+            Log out
+          </button>
+                </ng-template>
+                <ng-template #showLoginAndSignUp>
+                    <button aria-label="Log in" (click)="gotoLogin()" class="actions">
+            Login
+          </button>
+                    <button aria-label="Sign up" (click)="gotoSignUp()" class="actions">
+            Sign up
+          </button>
+                </ng-template>
+            </nav>
+        </header>
+    </div>
 
-<div class="quotes-section">
-    <app-quotes-list [userAuthenticated]="isAuthenticated"></app-quotes-list>
+    <div class="quotes-section">
+        <app-quotes-list [userAuthenticated]="isAuthenticated"></app-quotes-list>
+    </div>
 </div>

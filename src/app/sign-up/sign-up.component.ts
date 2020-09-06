@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
   public user: User;
@@ -19,9 +19,9 @@ export class SignUpComponent implements OnInit {
   public errorMessage: string;
   getState: Observable<any>;
   displayLogin: boolean;
-  constructor(private store: Store<AppState>,  private route: ActivatedRoute) {
+  constructor(private store: Store<AppState>, private route: ActivatedRoute) {
     this.getState = this.store.select(selectAuthState);
-   }
+  }
 
   ngOnInit(): void {
     this.initializeSignUpForm();
@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
       this.errorMessage = state.errorMessage;
     });
     this.errorMessage = undefined;
-    this.route.data.subscribe(params => {
+    this.route.data.subscribe((params) => {
       if (params && params.isLogin) {
         this.displayLogin = params.isLogin;
       } else {
@@ -39,28 +39,28 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  private initializeSignUpForm(): void{
+  private initializeSignUpForm(): void {
     this.signUpForm = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
   }
   private setUserData(): void {
     this.user = {
       email: this.email,
       password: this.password,
-      name: this.name
+      name: this.name,
     };
   }
   private setLoginUserData(): void {
     this.loginUser = {
       email: this.loginEmail,
-      password: this.loginPassword
+      password: this.loginPassword,
     };
   }
   public signUp(): void {
@@ -68,7 +68,7 @@ export class SignUpComponent implements OnInit {
     this.store.dispatch(new SignUp(this.user));
   }
 
-  public login(): void{
+  public login(): void {
     this.setLoginUserData();
     this.store.dispatch(new LogIn(this.loginUser));
   }
@@ -89,5 +89,4 @@ export class SignUpComponent implements OnInit {
   get loginEmail(): string {
     return this.loginForm.get('email').value;
   }
-
 }

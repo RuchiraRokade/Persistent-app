@@ -1,18 +1,20 @@
 module.exports = {
-    "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-        "<rootDir>/setup-jest.ts"
-    ],
-    "transformIgnorePatterns": [
-        "node_modules/(?!@ngrx|ngx-socket-io)"
-    ],
-    "transform": {
-        "^.+\\.(ts|js|html)$": "ts-jest"
+    preset: "jest-preset-angular",
+    roots: "./src",
+    testMatch: ["**/+(*.)+(spec).+(ts)"],
+    setupFilesAfterEnv: ["<rootDir>/setup-jest.ts"],
+    transform: {
+        "^.+\\.(ts|js|html)$": "ts-jest",
     },
-    "testPathIgnorePatterns": [
+    testPathIgnorePatterns: [
         "<rootDir>/node_modules/",
         "<rootDir>/dist/",
         "<rootDir>/cypress/",
         "<rootDir>/src/test.ts",
-    ]
+        "node_modules/(?!@ngrx|ngx-socket-io)",
+    ],
+    collectCoverage: true,
+    coverageReporters: ["html"],
+    clearMocks: true,
+    coverageDirectory: "coverage",
 };
