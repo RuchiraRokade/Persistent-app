@@ -1,14 +1,14 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Quote } from '../models/quote';
-import { QuotesService } from '../services/quotes.service';
+import { Quote } from '../../models/quote';
+import { QuotesService } from '../../services/quotes.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState, quoteState } from '../store/app.state';
+import { AppState, quoteState } from '../../store/app.state';
 import {
   AddQuote,
   GetQuotes,
   UpdateQuote,
-} from '../quote-store/actions/quote.actions';
+} from '../../quote-store/actions/quote.actions';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,15 +19,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./create-quote.component.scss'],
 })
 export class CreateQuoteComponent implements OnInit {
-  @Input() existingQuote?: Quote;
+  existingQuote: Quote;
+
   displayUpdate: boolean;
+
   newQuote: Quote;
+
   submitted: false;
+
   createQuoteForm: FormGroup;
+
   getState: Observable<any>;
-  @Output() quoteCreatedSuccessfully = new EventEmitter<string>();
-  @Output() errorInQuoteCreation = new EventEmitter<string>();
+
   quoteId: number;
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
@@ -39,19 +44,14 @@ export class CreateQuoteComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.route.snapshot.params && this.route.snapshot.params.id) {
-      console.log('params...', this.route.snapshot.params);
       this.quoteId = this.route.snapshot.params.id;
       this.quotesService.getByQuoteId(this.quoteId).subscribe((data: Quote) => {
-        console.log('inside service..', data);
         this.existingQuote = data;
         this.initializeCreateQuoteForm(this.existingQuote);
       });
     }
     this.initializeCreateQuoteForm(this.existingQuote);
 
-    // this.existingQuote = JSON.parse(localStorage.getItem('quote'));
-
-    // after dispatching the create quote action, dispatch the load quotes action in the effectsitself
     this.store.subscribe((data) => {
       if (data) {
         if (data.quote.success) {
@@ -85,15 +85,19 @@ export class CreateQuoteComponent implements OnInit {
       });
     }
   }
+
   get quote(): string {
     return this.createQuoteForm.get('quote').value;
   }
+
   get description(): string {
     return this.createQuoteForm.get('description').value;
   }
+
   get author(): string {
     return this.createQuoteForm.get('author').value;
   }
+
   get category(): string {
     return this.createQuoteForm.get('category').value;
   }
@@ -121,5 +125,8 @@ export class CreateQuoteComponent implements OnInit {
       this.store.dispatch(new GetQuotes());
       this.router.navigate(['/']);
     }
+  }
+  public gotoHome(): void {
+    this.router.navigate(['/']);
   }
 }

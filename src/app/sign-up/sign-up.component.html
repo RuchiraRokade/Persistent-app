@@ -1,41 +1,30 @@
-<ng-container *ngIf="displayLogin; else signUp">
-
-    <div class="create-form form-background">
-        <h3>Login Form</h3>
-        <hr>
-        <form [formGroup]="loginForm" class="form-row">
-            <div class="form-row">
-                <div class="col50">
-                    <label for="email">Enter the email id:</label>
-                </div>
-                <div class="col50">
-                    <input name="email" type="email" formControlName="email" placeholder="Enter your email id">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col50">
-                    <label for="password">Enter the email id:</label>
-                </div>
-                <div class="col50">
-                    <input name="password" type="password" formControlName="password" placeholder="Enter your password">
-                </div>
-            </div>
-            <button aria-label="Log in" (click)="login()" class="primary-button" [disabled]="loginForm.invalid">Login</button>
-        </form>
-        <span>{{errorMessage}}</span>
-    </div>
-</ng-container>
-<ng-template #signUp>
-    <div>
-        <h3>Sign up</h3>
-        <hr>
-        <form [formGroup]="signUpForm">
-            <span></span>
-            <input type="text" formControlName="name" placeholder="Enter your name">
-            <input type="email" formControlName="email" placeholder="Enter your email id">
-            <input type="password" formControlName="password" placeholder="Enter your password">
-            <button aria-label="Sign up" (click)="signUp()" [disabled]="signUpForm.invalid">Sign Up</button>
-        </form>
-        <span>{{errorMessage}}</span>
-    </div>
-</ng-template>
+<div class="create-form form-background">
+    <h3 *ngIf="displayLogin">Login Form</h3>
+    <h3 *ngIf="!displayLogin">Sign up</h3>
+    <hr />
+    <form [formGroup]="signUpForm">
+        <div class="col50" *ngIf="!displayLogin">
+            <label for="password">Enter the name:</label>
+        </div>
+        <div class="col50" *ngIf="!displayLogin">
+            <input type="text" formControlName="name" placeholder="Enter your name" />
+        </div>
+        <div class="col50">
+            <label for="password">Enter the Email id:</label>
+        </div>
+        <div class="col50">
+            <input type="email" formControlName="email" placeholder="Enter your email id" />
+        </div>
+        <div class="col50">
+            <label for="password">Enter the Password id:</label>
+        </div>
+        <div class="col50">
+            <input type="password" formControlName="password" placeholder="Enter your password" />
+        </div>
+        <button aria-label="Sign up" (click)="loginOrRegister()" class="button-one" [disabled]="signUpForm.invalid">
+      <span *ngIf="!displayLogin">Sign Up</span>
+      <span *ngIf="displayLogin">Login</span>
+    </button>
+    </form>
+    <span>{{ errorMessage }}</span>
+</div>

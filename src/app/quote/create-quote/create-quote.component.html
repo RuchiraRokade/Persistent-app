@@ -1,0 +1,46 @@
+<div class="create-form form-background">
+    <!-- <ng-container *ngIf="!displayUpdate; else updateQuote"> -->
+    <h2 *ngIf="!displayUpdate">Create a new Quote</h2>
+    <h2 *ngIf="displayUpdate">Update Quote</h2>
+    <form [formGroup]="createQuoteForm">
+        <div class="form-row">
+            <div class="col50">
+                <label>Enter the Quote</label>
+            </div>
+            <div class="col50">
+                <input type="text" aria-label="Enter the quote" formControlName="quote" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col50">
+                <label>Enter the Quote description</label>
+            </div>
+            <div class="col50">
+                <input type="text" aria-label="Enter the description of the quote" formControlName="description" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col50">
+                <label>Enter the Quote author</label>
+            </div>
+            <div class="col50">
+                <input aria-label="Enter the author of the quote" type="text" formControlName="author" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col50">
+                <label>Enter the category of the quote</label>
+            </div>
+            <div class="col50">
+                <input aria-label="Enter the category of the quote" type="text" formControlName="category" />
+            </div>
+        </div>
+    </form>
+    <button aria-label="Create the quote" [disabled]="createQuoteForm.invalid" (click)="createOrUpdateQuote()" class="button-two">
+    <span *ngIf="!displayUpdate">Create</span>
+    <span *ngIf="displayUpdate">Update</span>
+  </button>
+    <button aria-label="Create the quote" (click)="gotoHome()" class="button-two">
+    Go back
+  </button>
+</div>

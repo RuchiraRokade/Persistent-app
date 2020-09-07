@@ -1,7 +1,12 @@
-table,
-thead {
-    border: 1px solid lightgrey;
+.notification {
     text-align: center;
+    padding: 2rem;
+    &.success {
+        background-color: green;
+    }
+    &.error {
+        background-color: tomato;
+    }
 }
 
 table {
@@ -20,20 +25,6 @@ table {
                     margin-left: 0.5rem;
                 }
             }
-            &:nth-child(even) {
-                background-color: #f2f2f2;
-            }
         }
-    }
-}
-
-.notification {
-    text-align: center;
-    padding: 2rem;
-    &.success {
-        background-color: green;
-    }
-    &.error {
-        background-color: tomato;
     }
 }

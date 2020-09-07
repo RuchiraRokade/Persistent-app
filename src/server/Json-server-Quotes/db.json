@@ -1,0 +1,95 @@
+{
+  "quotes": [
+    {
+      "id": 2,
+      "quote": "Wisely, and slow. They stumble that run fast",
+      "description": "Wisely, and slow. They stumble that run fast - description",
+      "author": "William Shakespeare",
+      "category": "Life"
+    },
+    {
+      "id": 3,
+      "quote": "If you judge people, you have no time to love them",
+      "description": "If you judge people, you have no time to love them - description",
+      "author": "Dalai Lama",
+      "category": "Love"
+    },
+    {
+      "quote": "Be kind whenever possible. It is always possible",
+      "description": "Be kind whenever possible. It is always possible- description",
+      "author": "Dalai Lama",
+      "category": "Love",
+      "id": 5
+    },
+    {
+      "quote": "My Life is My Message",
+      "description": "this is a new quote",
+      "author": "Mahatma Gandhi",
+      "category": "Life",
+      "id": 8
+    },
+    {
+      "quote": "Cowards die many times before their deaths; the valiant never taste of death but once",
+      "description": "Cowards die many times before their deaths; the valiant never taste of death but once",
+      "author": "William Shakespeare",
+      "category": "Courage",
+      "id": 9
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Life"
+    },
+    {
+      "id": 2,
+      "name": "Love"
+    },
+    {
+      "id": 3,
+      "name": "Motivational"
+    },
+    {
+      "id": 4,
+      "name": "Courage"
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Coco Chanel"
+    },
+    {
+      "id": 2,
+      "name": "Dalai Lama"
+    },
+    {
+      "id": 3,
+      "name": "William Shakespeare"
+    },
+    {
+      "id": 4,
+      "name": "Mother Teresa"
+    },
+    {
+      "id": 5,
+      "name": "Mahatma Gandhi"
+    }
+  ],
+  "users": [
+    {
+      "email": "user@zz.com",
+      "password": "password"
+    },
+    {
+      "email": "aa@zz.com",
+      "password": "password"
+    },
+    {
+      "email": "user1@test.com",
+      "name": "user",
+      "password": "test",
+      "id": 3
+    }
+  ]
+}

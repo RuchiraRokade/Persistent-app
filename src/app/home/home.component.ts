@@ -14,12 +14,17 @@ import { AppState, selectAuthState } from '../store/app.state';
 })
 export class HomeComponent implements OnInit {
   getState: Observable<any>;
+
   isAuthenticated: false;
+
   quotes: Quote[];
+
   user = null;
+
   errorMessage = null;
+
   isDarkTheme = false;
-  // private router: Router
+
   constructor(private store: Store<AppState>, private router: Router) {
     this.getState = this.store.select(selectAuthState);
   }

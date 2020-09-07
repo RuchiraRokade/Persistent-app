@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
-import { CreateQuoteComponent } from './create-quote/create-quote.component';
+import { CreateQuoteComponent } from './quote/create-quote/create-quote.component';
 
 const routes: Routes = [
   { path: 'login', component: SignUpComponent, data: { isLogin: true } },

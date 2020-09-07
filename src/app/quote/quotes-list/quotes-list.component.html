@@ -1,0 +1,30 @@
+<button aria-label="Create a new quote" class="button-two" *ngIf="userAuthenticated" (click)="createQuoteForm()">
+  Create new quote
+</button>
+<table>
+    <thead>
+        <tr>
+            <th>Quote</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th class="actions" *ngIf="userAuthenticated">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let quote of quotes">
+            <td tabindex="0">{{ quote.quote }}</td>
+            <td tabindex="0">{{ quote.description }}</td>
+            <td tabindex="0">{{ quote.author }}</td>
+            <td tabindex="0">{{ quote.category }}</td>
+            <td class="actions-buttons" *ngIf="userAuthenticated">
+                <button tabindex="0" aria-label="Delete Quote" class="button-three delete" (click)="deleteQuote(quote.id)">
+          Delete
+        </button>
+                <button tabindex="0" aria-label="Update Quote" class="button-two update" (click)="updateQuote(quote)">
+          Update
+        </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

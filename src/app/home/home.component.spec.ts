@@ -1,17 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HomeComponent } from './home.component';
-import { StoreModule, Store } from '@ngrx/store';
-import { RouterTestingModule } from '@angular/router/testing';
-import { reducers } from '../store/app.state';
-import { Router } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { HomeComponent } from './home.component';
 
-fdescribe('HomeComponent', () => {
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let mockStore: MockStore;
+  let ele;
   const initialState = {
     isAuthenticated: false,
     user: null,
@@ -20,7 +17,7 @@ fdescribe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      // imports: [],
+      imports: [RouterTestingModule],
       providers: [provideMockStore()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
@@ -30,6 +27,7 @@ fdescribe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     mockStore = TestBed.inject(MockStore);
     component = fixture.componentInstance;
+    ele = fixture.nativeElement;
     fixture.detectChanges();
   });
 

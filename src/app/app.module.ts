@@ -12,8 +12,8 @@ import { AuthEffects } from './store/effects/auth.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.state';
-import { QuotesListComponent } from './quotes-list/quotes-list.component';
-import { CreateQuoteComponent } from './create-quote/create-quote.component';
+import { QuotesListComponent } from './quote/quotes-list/quotes-list.component';
+import { CreateQuoteComponent } from './quote/create-quote/create-quote.component';
 import { QuoteEffects } from '../app/quote-store/effects/quote.effects';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { QuoteEffects } from '../app/quote-store/effects/quote.effects';
     SignUpComponent,
     HomeComponent,
     QuotesListComponent,
-    CreateQuoteComponent
+    CreateQuoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +30,10 @@ import { QuoteEffects } from '../app/quote-store/effects/quote.effects';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects, QuoteEffects]),
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects, QuoteEffects]),
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

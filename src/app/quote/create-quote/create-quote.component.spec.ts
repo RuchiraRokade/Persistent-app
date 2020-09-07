@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateQuoteComponent } from './create-quote.component';
-const quotesServices = jasmine.createSpy('QuotesService');
+import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('CreateQuoteComponent', () => {
   let component: CreateQuoteComponent;
   let fixture: ComponentFixture<CreateQuoteComponent>;
@@ -9,9 +12,14 @@ describe('CreateQuoteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CreateQuoteComponent],
-      providers: [quotesServices]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientTestingModule,
+      ],
+      providers: [provideMockStore()],
+    });
   }));
 
   beforeEach(() => {

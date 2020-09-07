@@ -14,11 +14,17 @@ import { ActivatedRoute } from '@angular/router';
 export class SignUpComponent implements OnInit {
   public user: User;
   public loginUser: User;
+
   public signUpForm: FormGroup;
+
   public loginForm: FormGroup;
+
   public errorMessage: string;
+
   getState: Observable<any>;
+
   displayLogin: boolean;
+
   constructor(private store: Store<AppState>, private route: ActivatedRoute) {
     this.getState = this.store.select(selectAuthState);
   }
@@ -41,36 +47,27 @@ export class SignUpComponent implements OnInit {
 
   private initializeSignUpForm(): void {
     this.signUpForm = new FormGroup({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
-    });
-    this.loginForm = new FormGroup({
+      name: new FormControl(''),
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
   }
+
+  public loginOrRegister(): void {
+    this.setUserData();
+    if (this.displayLogin) {
+      this.store.dispatch(new LogIn(this.user));
+    } else {
+      this.store.dispatch(new SignUp(this.user));
+    }
+  }
+
   private setUserData(): void {
     this.user = {
       email: this.email,
       password: this.password,
       name: this.name,
     };
-  }
-  private setLoginUserData(): void {
-    this.loginUser = {
-      email: this.loginEmail,
-      password: this.loginPassword,
-    };
-  }
-  public signUp(): void {
-    this.setUserData();
-    this.store.dispatch(new SignUp(this.user));
-  }
-
-  public login(): void {
-    this.setLoginUserData();
-    this.store.dispatch(new LogIn(this.loginUser));
   }
 
   get name(): string {
@@ -81,12 +78,5 @@ export class SignUpComponent implements OnInit {
   }
   get password(): string {
     return this.signUpForm.get('password').value;
-  }
-
-  get loginPassword(): string {
-    return this.loginForm.get('password').value;
-  }
-  get loginEmail(): string {
-    return this.loginForm.get('email').value;
   }
 }

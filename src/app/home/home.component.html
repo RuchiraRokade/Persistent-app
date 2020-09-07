@@ -2,28 +2,32 @@
     <div>
         <header class="header">
             <span class="heading-title">Quotes sharing app</span>
-            <button (click)="toggleTheme()">Toggle theme</button>
+            <button class="button-one actions" (click)="toggleTheme()">
+        <span *ngIf="isDarkTheme">Use light theme</span>
+        <span *ngIf="!isDarkTheme">Use dark theme</span>
+      </button>
             <nav class="navigation">
-                <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp" class="actions"></div>
+                <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp"></div>
                 <ng-template #userLoggedIn>
                     <p>
                         You logged in <em>{{ user.email }}!</em>
                     </p>
-                    <button aria-label="Log out" (click)="logout()" class="primary-button">
+                    <button aria-label="Log out" (click)="logout()" class="button-one">
             Log out
           </button>
                 </ng-template>
                 <ng-template #showLoginAndSignUp>
-                    <button aria-label="Log in" (click)="gotoLogin()" class="actions">
+                    <button aria-label="Log in" class="button-two actions" (click)="gotoLogin()">
             Login
           </button>
-                    <button aria-label="Sign up" (click)="gotoSignUp()" class="actions">
+                    <button aria-label="Sign up" class="button-two actions" (click)="gotoSignUp()">
             Sign up
           </button>
                 </ng-template>
             </nav>
         </header>
     </div>
+    <hr />
 
     <div class="quotes-section">
         <app-quotes-list [userAuthenticated]="isAuthenticated"></app-quotes-list>
