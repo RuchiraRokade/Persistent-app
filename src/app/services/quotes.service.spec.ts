@@ -45,9 +45,9 @@ describe('QuotesService', () => {
 
   beforeEach(inject(
     [QuotesService, HttpTestingController],
-    (_service, _httpMock) => {
-      service = _service;
-      httpMock = _httpMock;
+    (serviceInstance, httpMockInstance) => {
+      service = serviceInstance;
+      httpMock = httpMockInstance;
     }
   ));
 

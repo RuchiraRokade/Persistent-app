@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "./themes/palette.scss";
-@import "./themes/theme.scss";
 * {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table,
+thead {
+    border: 1px solid lightgrey;
+    text-align: center;
 }
 
 .container {
@@ -12,87 +17,102 @@
     display: grid;
 }
 
-.contain-all {
-    &.light-mode {
-        @import "./themes/light/variables.scss";
-        .form-background {
-            background-color: $background-color;
-        }
-        .primary-button {
-            color: white;
-            background: $button-background-color-one;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-            pointer-events: cursor;
-        }
-        .secondary-button {
-            color: black;
-            background: $button-background-color-two;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-            pointer-events: cursor;
-        }
-        .accent-button {
-            color: white;
-            background: $button-background-color-three;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-        }
-    }
-    &.dark-mode {
-        @import "./themes/dark/variables.scss";
-        .form-background {
-            background-color: $background-color;
-        }
-        .primary-button {
-            color: white;
-            background: $button-background-color-one;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-            pointer-events: cursor;
-        }
-        .secondary-button {
-            color: black;
-            background: $button-background-color-two;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-            pointer-events: cursor;
-        }
-        .accent-button {
-            color: white;
-            background: $button-background-color-three;
-            padding: 0.5rem;
-            border-radius: 0.2rem;
-            border: none;
-            font-weight: normal;
-            font-size: 1rem;
-        }
-    }
-}
-
-// .header {
-//     background-color: $background-color;
-// }
-button:hover {
+.button-one {
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    font-weight: normal;
+    font-size: 1rem;
     pointer-events: cursor;
 }
 
+.button-two {
+    color: black;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    font-weight: normal;
+    font-size: 1rem;
+    pointer-events: cursor;
+}
+
+.button-three {
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    border: none;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+.contain-all {
+    &.light-mode {
+        @import "./themes/light.scss";
+        .form-background {
+            background-color: $background-color;
+        }
+        .button-one {
+            background: $button-background-color-one;
+        }
+        .button-two {
+            background: $button-background-color-two;
+        }
+        .button-three {
+            background: $button-background-color-three;
+        }
+        table {
+            thead {
+                tr {
+                    background-color: $background-color;
+                }
+            }
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: $table-background;
+                    }
+                }
+            }
+        }
+    }
+    &.dark-mode {
+        @import "./themes/dark.scss";
+        .form-background {
+            background-color: $background-color;
+        }
+        .button-one {
+            background: $button-background-color-one;
+        }
+        .button-two {
+            background: $button-background-color-two;
+        }
+        .button-three {
+            background: $button-background-color-three;
+        }
+        table {
+            thead {
+                tr {
+                    background-color: $background-color;
+                }
+            }
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: $table-background;
+                    }
+                }
+            }
+        }
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 button {
+    background-color: #07689f;
     &:disabled {
         background-color: lightgrey;
     }
