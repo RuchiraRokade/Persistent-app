@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Quote } from '../models/quote';
-import { Logout } from '../store/actions/user.actions';
-import { AppState, selectAuthState } from '../store/app.state';
+import { Quote } from '../core/models/quote';
+import { Logout } from '../sign-up/store/actions/user.actions';
+import { AppState, selectAuthState } from '../sign-up/store/app.state';
 
 @Component({
   selector: 'app-home',

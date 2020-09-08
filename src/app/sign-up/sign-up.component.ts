@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/User';
+import { User } from '../core/models/User';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState, selectAuthState } from '../store/app.state';
-import { SignUp, LogIn } from '../store/actions/user.actions';
+import { AppState, selectAuthState } from '../sign-up/store/app.state';
+import { SignUp, LogIn } from './store/actions/user.actions';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 @Component({
@@ -48,7 +48,7 @@ export class SignUpComponent implements OnInit {
   private initializeSignUpForm(): void {
     this.signUpForm = new FormGroup({
       name: new FormControl(''),
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
   }
@@ -68,6 +68,10 @@ export class SignUpComponent implements OnInit {
       password: this.password,
       name: this.name,
     };
+  }
+
+  public resetForm(): void {
+    this.signUpForm.reset();
   }
 
   get name(): string {

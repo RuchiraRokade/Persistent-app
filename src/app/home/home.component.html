@@ -9,12 +9,14 @@
             <nav class="navigation">
                 <div *ngIf="isAuthenticated; then userLoggedIn; else showLoginAndSignUp"></div>
                 <ng-template #userLoggedIn>
-                    <p>
-                        You logged in <em>{{ user.email }}!</em>
-                    </p>
-                    <button aria-label="Log out" (click)="logout()" class="button-one">
-            Log out
-          </button>
+                    <div class="user-info">
+                        <p>
+                            You logged in <em>{{ user.email }}!</em>
+                        </p>
+                        <button aria-label="Log out" (click)="logout()" class="button-one">
+              Log out
+            </button>
+                    </div>
                 </ng-template>
                 <ng-template #showLoginAndSignUp>
                     <button aria-label="Log in" class="button-two actions" (click)="gotoLogin()">

@@ -1,5 +1,4 @@
 <div class="create-form form-background">
-    <!-- <ng-container *ngIf="!displayUpdate; else updateQuote"> -->
     <h2 *ngIf="!displayUpdate">Create a new Quote</h2>
     <h2 *ngIf="displayUpdate">Update Quote</h2>
     <form [formGroup]="createQuoteForm">
@@ -21,6 +20,7 @@
         </div>
         <div class="form-row">
             <div class="col50">
+                <!--add for-->
                 <label>Enter the Quote author</label>
             </div>
             <div class="col50">

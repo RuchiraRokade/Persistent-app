@@ -2,12 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Quote } from '../../models/quote';
+import { Quote } from '../../core/models/quote';
 import {
   DeleteQuotes,
   GetQuotes,
-} from '../../quote-store/actions/quote.actions';
-import { AppState, quoteState } from '../../store/app.state';
+} from '../../quote/quote-store/actions/quote.actions';
+import { AppState, quoteState } from '../../sign-up/store/app.state';
 
 @Component({
   selector: 'app-quotes-list',

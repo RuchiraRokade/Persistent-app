@@ -90,6 +90,12 @@
       "name": "user",
       "password": "test",
       "id": 3
+    },
+    {
+      "email": "ruchira@test.com",
+      "password": "Ruchira",
+      "name": "Ruchira",
+      "id": 4
     }
   ]
 }

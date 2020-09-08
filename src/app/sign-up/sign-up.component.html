@@ -4,27 +4,35 @@
     <hr />
     <form [formGroup]="signUpForm">
         <div class="col50" *ngIf="!displayLogin">
-            <label for="password">Enter the name:</label>
+            <label for="name">Name:</label>
         </div>
         <div class="col50" *ngIf="!displayLogin">
             <input type="text" formControlName="name" placeholder="Enter your name" />
         </div>
         <div class="col50">
-            <label for="password">Enter the Email id:</label>
+            <label for="email">Email id:</label>
         </div>
         <div class="col50">
             <input type="email" formControlName="email" placeholder="Enter your email id" />
         </div>
+        <div class="validator" *ngIf="signUpForm.get('email').invalid && signUpForm.get('email').touched">
+            <label>Email must be valid. Example: john@gmail.com</label>
+        </div>
         <div class="col50">
-            <label for="password">Enter the Password id:</label>
+            <label for="password">Password:</label>
         </div>
         <div class="col50">
             <input type="password" formControlName="password" placeholder="Enter your password" />
         </div>
-        <button aria-label="Sign up" (click)="loginOrRegister()" class="button-one" [disabled]="signUpForm.invalid">
-      <span *ngIf="!displayLogin">Sign Up</span>
-      <span *ngIf="displayLogin">Login</span>
-    </button>
+        <div class="actions">
+            <button aria-label="Sign up" (click)="loginOrRegister()" class="button-one" [disabled]="signUpForm.invalid">
+        <span *ngIf="!displayLogin">Sign Up</span>
+        <span *ngIf="displayLogin">Login</span>
+      </button>
+            <button aria-label="Reset form" (click)="resetForm()" class="button-one">
+        Reset
+      </button>
+        </div>
     </form>
-    <span>{{ errorMessage }}</span>
+    <span class="validator">{{ errorMessage }}</span>
 </div>

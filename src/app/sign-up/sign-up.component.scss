@@ -22,3 +22,19 @@ input {
 .h2 {
     margin: 0.5rem;
 }
+
+.action-button {
+    float: right;
+}
+
+.validator {
+    text-align: center;
+    color: tomato;
+}
+
+.actions {
+    button {
+        float: right;
+        margin: 0 0.2rem;
+    }
+}

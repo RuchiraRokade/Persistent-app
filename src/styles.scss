@@ -17,6 +17,14 @@ thead {
     display: grid;
 }
 
+@media (max-width: 650px) {
+    .container {
+        margin-left: 2%;
+        margin-right: 2%;
+        display: grid;
+    }
+}
+
 .button-one {
     color: white;
     padding: 0.5rem;
@@ -44,6 +52,11 @@ thead {
     border: none;
     font-weight: normal;
     font-size: 1rem;
+}
+
+.create-form {
+    width: 50%;
+    margin: auto;
 }
 
 .contain-all {
