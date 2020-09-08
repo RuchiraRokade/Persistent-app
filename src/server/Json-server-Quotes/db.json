@@ -34,6 +34,13 @@
       "author": "William Shakespeare",
       "category": "Courage",
       "id": 9
+    },
+    {
+      "quote": "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.",
+      "description": "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.-description",
+      "author": "J.K. Rowling,",
+      "category": "Courage",
+      "id": 10
     }
   ],
   "categories": [
@@ -96,6 +103,12 @@
       "password": "Ruchira",
       "name": "Ruchira",
       "id": 4
+    },
+    {
+      "email": "myuser@gmail.com",
+      "password": "myuser",
+      "name": "myuser",
+      "id": 5
     }
   ]
 }

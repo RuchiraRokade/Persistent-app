@@ -110,20 +110,3 @@ describe('UpdateQuoteSuccess', () => {
     });
   });
 });
-
-// describe('DeleteQuotes', () => {
-//   it('should create an action of type DELETE_QUOTES', () => {
-//     const payload: Quote = {
-//       id: 3,
-//       quote: 'If you judge people, you have no time to love them',
-//       description:
-//         'If you judge people, you have no time to love them - description',
-//       author: 'Dalai Lama',
-//       category: 'Love',
-//     };
-//     const action = new DeleteQuotes(3);
-//     expect({ ...action }).toEqual({
-//       type: DELETE_QUOTES,
-//     });
-//   });
-// });

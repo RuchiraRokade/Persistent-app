@@ -77,7 +77,7 @@ describe('LogInFailure', () => {
 });
 
 describe('SignUpSuccess', () => {
-  it('should return the message stating that the credentials are invalid', () => {
+  it('should verify the same state after signup success', () => {
     const signUpSuccessAction = new SignUpSuccess(mockUser);
     const passedState: State = {
       isAuthenticated: true,
@@ -89,7 +89,7 @@ describe('SignUpSuccess', () => {
 });
 
 describe('SignUpFailure', () => {
-  it('should return the message stating that the credentials are invalid', () => {
+  it('should display error message that the email is already in use', () => {
     const signUpSuccessAction = new SignUpFailure();
     const passedState: State = {
       isAuthenticated: true,
@@ -101,13 +101,8 @@ describe('SignUpFailure', () => {
 });
 
 describe('Logout', () => {
-  it('should return the message stating that the credentials are invalid', () => {
+  it('should return the initial state after logout', () => {
     const logoutAction = new Logout();
-    const passedState: State = {
-      isAuthenticated: false,
-      user: mockUser,
-      errorMessage: 'That email is already in use.',
-    };
     expect(reducer(initialState, logoutAction)).toEqual(initialState);
   });
 });
