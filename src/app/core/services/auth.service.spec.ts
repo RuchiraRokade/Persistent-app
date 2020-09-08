@@ -64,7 +64,7 @@ describe('AuthService', () => {
     httpTestingController.verify();
   });
 
-  it('signup: should return an array containing the valid user', () => {
+  it('signup: should return an array containing signed up user object', () => {
     const mockCheckLoginUser = {
       name: 'new',
       email: 'new@zz.com',

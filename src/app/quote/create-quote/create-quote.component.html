@@ -4,35 +4,35 @@
     <form [formGroup]="createQuoteForm">
         <div class="form-row">
             <div class="col50">
-                <label>Enter the Quote</label>
+                <label for="quote">Enter the Quote</label>
             </div>
             <div class="col50">
-                <input type="text" aria-label="Enter the quote" formControlName="quote" />
+                <input type="text" name="quote" aria-label="Enter the quote" formControlName="quote" />
             </div>
         </div>
         <div class="form-row">
             <div class="col50">
-                <label>Enter the Quote description</label>
+                <label for="description">Enter the Quote description</label>
             </div>
             <div class="col50">
-                <input type="text" aria-label="Enter the description of the quote" formControlName="description" />
+                <input type="text" name="description" aria-label="Enter the description of the quote" formControlName="description" />
             </div>
         </div>
         <div class="form-row">
             <div class="col50">
                 <!--add for-->
-                <label>Enter the Quote author</label>
+                <label for="author">Enter the Quote author</label>
             </div>
             <div class="col50">
-                <input aria-label="Enter the author of the quote" type="text" formControlName="author" />
+                <input name="author" aria-label="Enter the author of the quote" type="text" formControlName="author" />
             </div>
         </div>
         <div class="form-row">
             <div class="col50">
-                <label>Enter the category of the quote</label>
+                <label for="category">Enter the category of the quote</label>
             </div>
             <div class="col50">
-                <input aria-label="Enter the category of the quote" type="text" formControlName="category" />
+                <input name="category" aria-label="Enter the category of the quote" type="text" formControlName="category" />
             </div>
         </div>
     </form>

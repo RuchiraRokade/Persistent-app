@@ -56,7 +56,7 @@ describe('QuotesService', () => {
     expect(service1).toBeTruthy();
   });
 
-  it('getById: should return a product by given id', () => {
+  it('getById: should return a quote by given id', () => {
     this.service.getByQuoteId(3).subscribe((quote) => {
       expect(quote.author).toBe('Dalai Lama');
     });
