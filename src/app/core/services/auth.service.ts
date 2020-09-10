@@ -1,14 +1,13 @@
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
-  readonly BASE_URL = 'http://localhost:3000/';
+  readonly BASE_URL = environment.baseUrl;
   private errorStatusMessage: string;
   get errorMessage(): string {
     return this.errorStatusMessage;

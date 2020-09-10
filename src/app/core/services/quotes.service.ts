@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -8,7 +9,7 @@ import { Quote } from '../models/quote';
   providedIn: 'root',
 })
 export class QuotesService {
-  readonly BASE_URL = 'http://localhost:3000/';
+  readonly BASE_URL = environment.baseUrl;
 
   httpOptions = {
     headers: new HttpHeaders({
